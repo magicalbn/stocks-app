@@ -1,0 +1,64 @@
+nav {
+  background-color: #0d0725;
+  color: white;
+}
+
+nav .navbar {
+  height: 8vh;
+  width: 70%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav .navbar__logo {
+  letter-spacing: 4px;
+}
+
+nav .navbar__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+}
+
+nav .navbar__links li:not(:last-child) {
+  margin-right: 15px;
+}
+
+nav .navbar__links li.active a::after {
+  content: "";
+  opacity: 1;
+}
+
+nav .navbar__links a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  position: relative;
+}
+
+nav .navbar__links a::after {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3px;
+  background: white;
+  left: 0;
+  bottom: -2.1vh;
+  opacity: 0;
+}
+
+nav .navbar__links a:hover::after {
+  opacity: 1;
+}
+/*# sourceMappingURL=navbar.css.map */

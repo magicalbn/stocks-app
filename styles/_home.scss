@@ -1,0 +1,96 @@
+.home-list {
+    max-width: 270px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    max-height: 400px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    /* width */
+    &::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    /* Track */
+
+    &::-webkit-scrollbar-track {
+        background: #00000000;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: var(--extra-panel);
+        border-radius: 20px;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: var(--element-color);
+    }
+
+    .stocks-list,
+    .watch-list {
+        h2 {
+            background-color: var(--element-color);
+            color: white;
+            padding: 10px;
+            font-size: 15px;
+            letter-spacing: 2px;
+        }
+
+        .each-stock {
+            background-color: white;
+            &:not(:last-child) {
+                border-bottom: 1px solid var(--element-color);
+            }
+
+            border-bottom: none;
+            display: flex;
+            padding: 5px 0;
+            margin: 0 20px;
+            justify-content: space-between;
+            align-items: center;
+            .left {
+                flex: 1;
+                cursor: pointer;
+                &:hover {
+                    p {
+                        font-weight: bold;
+                    }
+                }
+                h3 {
+                    font-size: 18px;
+                }
+                p {
+                    color: var(--success-color);
+                    font-size: 13px;
+                }
+            }
+            .right {
+                cursor: pointer;
+                flex: 1;
+                text-align: right;
+                &:hover {
+                    font-weight: bold;
+                }
+                p {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+    .watch-list {
+        .each-stock {
+            height: 45px;
+            .left {
+                &:hover {
+                    h3 {
+                        font-weight: bold;
+                    }
+                }
+                h3 {
+                    font-weight: lighter;
+                }
+            }
+        }
+    }
+}

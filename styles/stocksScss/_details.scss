@@ -1,0 +1,62 @@
+.stocks-search {
+    .details {
+        margin: 50px 0px;
+        margin-left: 50px;
+        max-width: 750px;
+
+        .controller{
+            display: flex;
+            justify-content: space-between;
+
+            .desc{
+                background-color: white;
+                background-color: var(--back-color);
+                border: none;
+                outline: none;
+                background-image: url(/static/svg/down-arrow.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 18px;
+                width: 45px;
+                height: 40px;
+                cursor: pointer;
+                transition: all 0.5s ease-in-out;
+
+                &.show{
+                    transform: rotate(-180deg)
+                }
+            }
+        }
+        p {
+            font-size: 14px;
+        }
+
+        .description {
+            margin: 20px 0px;
+            text-align: justify;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .each {
+                width: 200px;
+                margin-bottom: 20px;
+            }
+
+            .title {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1000px){
+    .stocks-search{
+        .details{
+            margin-left: 0;
+        }
+    }
+
+}

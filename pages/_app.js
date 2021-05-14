@@ -1,9 +1,10 @@
 //import App from 'next/app'
 import '../styles/dist/styles.css'
+import { ToastProvider, useToasts } from 'react-toast-notifications';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 function MyApp({ Component, pageProps }) {
-    return <Component {...pageProps} />
+    return <ToastProvider><Component {...pageProps} /></ToastProvider>
   }
   
   // Only uncomment this method if you have blocking data requirements for

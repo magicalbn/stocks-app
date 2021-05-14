@@ -1,0 +1,125 @@
+.search {
+    height: 100px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+
+    .suggestion {
+       
+        position: relative;
+        
+        input {
+            font-weight: bold;
+            color: var(--element-color);
+            padding: 10px;
+            padding-left: 20px;
+            border: none;
+            outline: none;
+            width: 300px;
+            border-radius: 5px 0 0 5px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            text-transform: capitalize;
+            transition: 0.3s ease-in-out;
+            &:focus {
+                border-bottom-left-radius: 0;
+                
+            }
+            &:focus + .dropdown {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+        }
+
+        .dropdown {
+            position: absolute;
+            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            width: 100%;        
+            z-index: 10; 
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease-in-out;
+            bottom: -2px;
+            transform: translateY(100%);
+            border: 0.5px solid var(--light-element-color);
+            border-top: none;
+            border-radius: 0 0px 5px 5px;
+            overflow: hidden;
+            div{
+                background-color: white;
+                padding: 2.5px;
+                padding-left: 15px;
+                transition: all 0.2s ease-in-out;
+                cursor: pointer;
+                &:not(:last-child){
+                    border-bottom: 1px solid var(--light-element-color);
+                }
+                p{
+                    color: var(--input-color);
+                    font-size: 15px;
+
+                    &:not(:last-child){
+                        font-weight: bold;
+                    }
+                }
+                &:hover{
+                    background-color: var(--light-element-color);
+                    p{color: white;}
+                }
+            }  
+        }
+
+        .error{
+            position: absolute;
+            bottom: -10px;
+            transform: translateY(100%);
+            padding-left: 10px;
+         }
+    }
+
+    button {
+        background-color: var(--extra-panel);
+        color: white;
+        border: none;
+        outline: none;
+        
+        border-radius: 0 10px 10px 0;
+        opacity: 0.8;
+        cursor: pointer;
+        background-image: url(/static/svg/search-solid.svg) ;
+        background-size: 18px;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 45px;
+        height: 40px;
+        transition: 0.3s ease-in-out;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+   
+}
+
+@media  screen and (max-width: 600px){
+    .search{
+        .suggestion{
+            input{
+                width: 200px;
+                font-size: 12px;
+                padding: 10px;
+                padding-left: 15px;
+                :focus{
+                    transform: scale(2);
+                }
+            }
+        }
+        button{
+            height: 36px;
+            width: 36px;
+            background-size: 15px;
+        }
+    }
+}

@@ -1,0 +1,105 @@
+.chart {
+    font-size: 13px;
+    margin-top: 20px;
+    h2 {
+        font-size: 20px;
+        font-weight: lighter;
+        margin-left: 50px;
+        margin-bottom: 5px;
+    }
+
+    .chart-container{
+        width: 1000px;
+    }
+
+    .cost {
+        margin-left: 50px;
+        font-size: 14px;
+
+        span {
+            font-size: 33px;
+            font-weight: bold;
+        }
+    }
+
+    .time-filter {
+        width: 500px;
+        margin-left: 100px;
+        display: flex;
+        justify-content: space-between;
+        span {
+            border-left: 1px solid #c4c4c4;
+            &:last-child {
+                border-right: 1px solid #c4c4c4;
+            }
+            width: 100%;
+            text-align: center;
+            font-size: 15px;
+            padding: 5px;
+            cursor: pointer;
+            position: relative;
+
+            &::before {
+                transition: 0.3s ease-in-out;
+                content: "";
+                position: absolute;
+                width: 60%;
+                height: 4px;
+                background-color: var(--stocks-green);
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 0;
+                margin: auto;
+                border-radius: 5px 5px 0 0;
+                opacity: 0;
+            }
+
+            &.active,
+            &:hover {
+                font-weight: bold;
+                &::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .chart {
+        
+
+        .time-filter {
+            width: 80%;
+            margin-left: 100px;
+            span {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .chart {
+        
+        .time-filter {      
+            
+            margin-left: 50px;
+            span {
+                font-size: 11px;
+            }
+        }
+        
+        
+        h2{
+            margin-left: 10px;
+            font-size: 18px;
+        }
+        .cost{
+            margin-left: 10px;
+            span{
+                font-size: 23px
+            }
+        }
+    }
+}

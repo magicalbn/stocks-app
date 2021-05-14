@@ -1,0 +1,31 @@
+
+html{
+    --back-color:hsl(0, 0%, 98%);
+    --text-color: #131112;
+    --element-color: #004459;
+    --light-element-color: #699190;
+    --input-color:hsl(0, 0%, 52%);
+    --border-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    --extra-panel: #fd7f09;
+    --error-color: rgb(243, 70, 51);
+    --success-color:rgb(26, 107, 1);
+    --stocks-green:#44AE68;
+}
+[data-theme='light'] {
+    --back-color:hsl(0, 0%, 98%);
+    --text-color: hsl(200, 15%, 8%);
+    --element-color: hsl(103, 72%, 50%);
+    --input-color:hsl(0, 0%, 52%);
+    --border-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+    --extra-panel: #eb913e;
+}
+
+[data-theme='dark'] {
+    --back-color:	#243447;
+    --text-color: hsl(0, 0%, 100%);
+    --element-color: hsl(103, 72%, 50%);
+    --input-color:hsl(0, 0%, 52%);
+    --border-shadow:rgb(149 157 165 / 20%) 0px 0px 0px;
+    --extra-panel: #eb913e;
+}
+
