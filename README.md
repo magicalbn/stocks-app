@@ -1,6 +1,6 @@
-# next-react-express-template
+# Stock App
 
-clone this repo and start with "npm run dev"        
+     
 !dont forget to to "npm install"
 
 heroku deployment script added
