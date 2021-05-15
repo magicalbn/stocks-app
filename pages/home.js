@@ -21,6 +21,8 @@ const Home = () => {
     const [error, seterror] = useState(null)
     const [userStocks, setuserStocks] = useState([])
     const [userWatchlist, setuserWatchlist] = useState([])
+    const [isLoading,setisLoading] = useState(true)
+    
 
     useEffect(() => {
         userGetdetails().then(user => {
@@ -30,9 +32,11 @@ const Home = () => {
             else{
                 getStocks().then(stocks => {
                     setuserStocks(stocks)
+                    setisLoading(false)
                 }).catch(err=>(console.log("Error fetching stocks")))
                 getWatchlist().then(stocks=>{
                     setuserWatchlist(stocks)
+                    
                 }).catch(err=>(console.log("Error fetching watchlist")))
             }
         }).catch(err => router.replace("/"))
@@ -81,7 +85,7 @@ const Home = () => {
                 <SearchStock submitHandler={submitHandler} error={error} />
                 <div className="home-section">
                     
-                    <Homelist userStocks={userStocks} userWatchlist={userWatchlist}/>
+                    <Homelist isLoading={isLoading} userStocks={userStocks} userWatchlist={userWatchlist}/>
                 </div>
                 <button onClick={getuser}>get user</button>
                 <button onClick={logout}>logout</button>
@@ -91,5 +95,7 @@ const Home = () => {
         </Layout>
     )
 }
+
+
 
 export default Home

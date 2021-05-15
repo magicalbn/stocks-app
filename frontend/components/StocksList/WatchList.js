@@ -3,13 +3,13 @@ import React from 'react';
 const Watchlist = (props) =>{
     
     const {userWatchlist} = props;
-    console.log(userWatchlist)
+   
 
     return(
         <div className="watch-list">
             <h2>WatchList</h2>
             {
-                userWatchlist?userWatchlist.map(each=>{
+                (userWatchlist && userWatchlist.length>0)?userWatchlist.map(each=>{
                     return(
                         <div key={each} className="each-stock">
                             <div className="left">
@@ -19,7 +19,7 @@ const Watchlist = (props) =>{
                             
                         </div>
                     )
-                }):"Start adding to WatchList"
+                }):<p className="empty">Start adding to WatchList . .</p>
             }
         </div>
     )

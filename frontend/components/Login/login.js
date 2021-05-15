@@ -128,6 +128,8 @@ const Login = () => {
     }
 
     const demoLogin = () => {
+        seterror(null)
+        setisLoading(true)
         const body = {
             username: "test@test.cm",
             password: "@123test"

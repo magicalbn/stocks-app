@@ -6,7 +6,7 @@ const Homelist = (props) =>{
     
     return(
         <div className="home-list">
-            <Stockslist userStocks={props.userStocks}/>
+            <Stockslist isLoading={props.isLoading} userStocks={props.userStocks}/>
             <Watchlist userWatchlist={props.userWatchlist}/>
         </div>
     )

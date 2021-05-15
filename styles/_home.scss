@@ -2,9 +2,11 @@
     max-width: 270px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     max-height: 400px;
-    overflow-y: scroll;
+   
     border-radius: 5px;
     margin-bottom: 50px;
+    background-color: white;
+    overflow-y: overlay;
     /* width */
     &::-webkit-scrollbar {
         width: 3px;
@@ -19,7 +21,7 @@
     /* Handle */
     &::-webkit-scrollbar-thumb {
         background: var(--extra-panel);
-        border-radius: 20px;
+        border-radius: 100px;
     }
 
     /* Handle on hover */
@@ -77,6 +79,12 @@
                 }
             }
         }
+
+        .empty{
+            font-size: 14px;
+            text-align: center;
+            padding: 15px 0px;
+        }
     }
     .watch-list {
         .each-stock {
@@ -92,5 +100,11 @@
                 }
             }
         }
+    }
+
+    .loader{
+        border: 4px solid var(--extra-panel);
+        border-top: 4px solid #00000000;
+        margin: 10px auto;
     }
 }

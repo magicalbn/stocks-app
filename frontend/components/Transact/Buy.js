@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
+import Spinner from '../UI/Spinner'
 import { useToasts } from 'react-toast-notifications'
 import { buyStocks, sellStocks, getStocks } from '../../lib/transact-lib'
 
@@ -8,16 +9,17 @@ const Buy = (props) => {
     const { details, isPurcahsing } = props;
     const [stocksCount, setstocksCount] = useState(1)
     const [currentCount, setcurrentCount] = useState('NA')
+    const [isLoading,setisLoading] = useState(false)
     const { addToast } = useToasts()
 
     let button
     let type
     if (isPurcahsing) {
         type = 'Buy'
-        button = <button onClick={() => transactBuy()}>Buy Shares</button>
+        button = <button disabled={isLoading} onClick={() => transactBuy()}>{ isLoading?<Spinner/>: "Buy Shares"}</button>
     } else {
         type = 'Sell'
-        button = <button disabled={currentCount < stocksCount} onClick={() => transactSell()}>Sell Shares</button>
+        button = <button disabled={(currentCount < stocksCount)||isLoading} onClick={() => transactSell()}>{isLoading?<Spinner/>: "Sell Shares"}</button>
     }
 
     useEffect(() => {
@@ -45,6 +47,7 @@ const Buy = (props) => {
     }
 
     const transactBuy = () => {
+        setisLoading(true)
         const data = {
             symbol: symbol,
             count: stocksCount
@@ -57,6 +60,7 @@ const Buy = (props) => {
             })
             getStockCount();
             setstocksCount(1);
+            setisLoading(false)
 
         })
             .catch(err => {
@@ -65,10 +69,12 @@ const Buy = (props) => {
                     appearance: 'error',
                     autoDismiss: true,
                 })
+                setisLoading(false)
             })
     }
 
     const transactSell = () => {
+        setisLoading(true)
         const data = {
             symbol: symbol,
             count: stocksCount
@@ -81,6 +87,7 @@ const Buy = (props) => {
             })
             getStockCount();
             setstocksCount(1);
+            setisLoading(false)
         })
             .catch(err => {
                 console.log(err.response)
@@ -88,6 +95,7 @@ const Buy = (props) => {
                     appearance: 'error',
                     autoDismiss: true,
                 })
+                setisLoading(false)
             })
     }
 
@@ -95,6 +103,7 @@ const Buy = (props) => {
 
     return (
         <div className="transact-details">
+            {console.log(isLoading)}
             <h3>{type} {symbol}</h3>
             <div className="current-shares"><span>Currenct Shares</span><p>{currentCount}</p></div>
             <div className="buy-shares"><span>{type} Shares</span><input min="1" max="1000" value={stocksCount} onChange={(event) => setstocksCount(event.target.value)} type="number"></input></div>

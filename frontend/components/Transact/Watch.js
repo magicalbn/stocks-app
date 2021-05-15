@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { getWatchlist, addtoWatchlist, removefromWatchlist } from '../../lib/watchlist-lib'
 import { useToasts } from 'react-toast-notifications'
+import Spinner from '../UI/Spinner'
+
+
 const Watch = (props) => {
     const [watching, setwatching] = useState(false)
+    const [isLoading,setisLoading] = useState(false)
+
+
     let content = watching ? 'Remove from WatchList' : 'Add to WatchList'
     const { addToast } = useToasts()
     useEffect(() => {
@@ -18,7 +24,7 @@ const Watch = (props) => {
     }, [])
 
     const watchfunction = () => {
-
+        setisLoading(true)
         const data = {
             symbol: props.symbol
         }
@@ -30,6 +36,7 @@ const Watch = (props) => {
                     appearance: 'success',
                     autoDismiss: true,
                 })
+                setisLoading(false)
             })
                 .catch(err => {
                     console.log(err.response)
@@ -37,6 +44,7 @@ const Watch = (props) => {
                         appearance: 'error',
                         autoDismiss: true,
                     })
+                    setisLoading(false)
                 })
         } else
             addtoWatchlist(data).then(res => {
@@ -46,6 +54,7 @@ const Watch = (props) => {
                     appearance: 'success',
                     autoDismiss: true,
                 })
+                setisLoading(false)
             })
                 .catch(err => {
                     console.log(err.response)
@@ -53,12 +62,13 @@ const Watch = (props) => {
                         appearance: 'error',
                         autoDismiss: true,
                     })
+                    setisLoading(false)
                 })
     }
 
     return (
         <div className={'watchlist ' + (watching ? 'unwatch' : 'watch')} onClick={() => watchfunction()}>
-            {content}
+            {isLoading?<Spinner/>: content}
         </div>
     )
 }
