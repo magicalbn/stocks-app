@@ -103,7 +103,7 @@ const Buy = (props) => {
 
     return (
         <div className="transact-details">
-            {console.log(isLoading)}
+           
             <h3>{type} {symbol}</h3>
             <div className="current-shares"><span>Currenct Shares</span><p>{currentCount}</p></div>
             <div className="buy-shares"><span>{type} Shares</span><input min="1" max="1000" value={stocksCount} onChange={(event) => setstocksCount(event.target.value)} type="number"></input></div>

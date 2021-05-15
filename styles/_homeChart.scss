@@ -1,0 +1,13 @@
+.home-section{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    .home-chart{
+        flex: 1;
+    }
+    
+    .home-list{
+        flex: 1;
+    }
+}

@@ -2,7 +2,7 @@
 
 const axios = require('axios');
 
-const RAPID_API_KEY = 'c833609905msh4cfbadb31f70478p10106bjsne69a3f3fde70'
+const RAPID_API_KEY = 'ece2094fc2msh25a46e0ecb546c9p144d89jsn039f9fd30406'
 const RAPID_API_HOST ='apidojo-yahoo-finance-v1.p.rapidapi.com'
 
 const instance = axios.create({

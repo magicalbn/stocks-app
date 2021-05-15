@@ -8,6 +8,9 @@ import { useRouter } from 'next/router'
 import Layout from '../frontend/components/Layout'
 import SearchStock from '../frontend/components/UI/StockSearch/StocksSearch'
 import Homelist from '../frontend/components/StocksList/HomeList'
+import Homestocks from '../frontend/components/HomeStocksChart/Homestocks'
+
+
 import { userGetdetails } from '../frontend/lib/auth-lib'
 import { getStocks } from '../frontend/lib/transact-lib'
 import { getWatchlist } from '../frontend/lib/watchlist-lib'
@@ -22,6 +25,7 @@ const Home = () => {
     const [userStocks, setuserStocks] = useState([])
     const [userWatchlist, setuserWatchlist] = useState([])
     const [isLoading,setisLoading] = useState(true)
+    const [currentStockSymbol,setcurrentStockSymbol] = useState()
     
 
     useEffect(() => {
@@ -33,10 +37,11 @@ const Home = () => {
                 getStocks().then(stocks => {
                     setuserStocks(stocks)
                     setisLoading(false)
+                    if(stocks[0]) setcurrentStockSymbol(stocks[0].symbol)
                 }).catch(err=>(console.log("Error fetching stocks")))
                 getWatchlist().then(stocks=>{
                     setuserWatchlist(stocks)
-                    
+                   
                 }).catch(err=>(console.log("Error fetching watchlist")))
             }
         }).catch(err => router.replace("/"))
@@ -76,6 +81,10 @@ const Home = () => {
         axios.get('/api/auth/logout').then(user => console.log(user)).catch(err => console.log(err.response))
     }
 
+    const onListClick = (value) =>{
+        setcurrentStockSymbol(value)
+    }
+
 
 
     return (
@@ -84,8 +93,8 @@ const Home = () => {
             <div className="container">
                 <SearchStock submitHandler={submitHandler} error={error} />
                 <div className="home-section">
-                    
-                    <Homelist isLoading={isLoading} userStocks={userStocks} userWatchlist={userWatchlist}/>
+                    <Homestocks currentStockSymbol={currentStockSymbol}/>
+                    <Homelist isLoading={isLoading} userStocks={userStocks} userWatchlist={userWatchlist} clickFunction={onListClick}/>
                 </div>
                 <button onClick={getuser}>get user</button>
                 <button onClick={logout}>logout</button>

@@ -2,13 +2,13 @@ import React from 'react';
 import Spinner from '../UI/Spinner';
 
 const Stocklist = (props) => {
-    const { userStocks, isLoading } = props
-    console.log(isLoading)
+    const { userStocks, isLoading, onListClick } = props
+    
     const content = (
         (userStocks && userStocks.length>0)? userStocks.map(each => {
             return (
-                <div key={each._id}className="each-stock">
-                    <div className="left">
+                <div key={each._id} className="each-stock">
+                    <div className="left" onClick={()=>onListClick(each.symbol)}>
                         <h3>{each.symbol}</h3>
                         <p>{each.count} shares</p>
                     </div>

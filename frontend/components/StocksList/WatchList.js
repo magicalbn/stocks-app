@@ -2,7 +2,7 @@ import React from 'react';
 
 const Watchlist = (props) =>{
     
-    const {userWatchlist} = props;
+    const {userWatchlist,onListClick} = props;
    
 
     return(
@@ -11,7 +11,7 @@ const Watchlist = (props) =>{
             {
                 (userWatchlist && userWatchlist.length>0)?userWatchlist.map(each=>{
                     return(
-                        <div key={each} className="each-stock">
+                        <div key={each} className="each-stock" onClick={()=>onListClick(each)}>
                             <div className="left">
                                 <h3>{each}</h3>
                             </div>

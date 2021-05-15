@@ -6,8 +6,8 @@ const Homelist = (props) =>{
     
     return(
         <div className="home-list">
-            <Stockslist isLoading={props.isLoading} userStocks={props.userStocks}/>
-            <Watchlist userWatchlist={props.userWatchlist}/>
+            <Stockslist isLoading={props.isLoading} userStocks={props.userStocks} onListClick={props.clickFunction}/>
+            <Watchlist userWatchlist={props.userWatchlist} onListClick={props.clickFunction}/>
         </div>
     )
 }

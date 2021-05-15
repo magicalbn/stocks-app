@@ -35,7 +35,8 @@ const StockSearch = (props) => {
 
     const setHandler = (name) => {
         setsearch(name)
-
+        
+        submitHandler(name)
     }
 
     
