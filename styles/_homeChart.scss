@@ -5,9 +5,37 @@
     align-items: center;
     .home-chart{
         flex: 1;
+
+        
     }
     
     .home-list{
         flex: 1;
+    }
+}
+
+@media screen and (max-width:1150px){
+    .home-section{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .home-chart{
+        width: 100%;
+        min-height: 250px;
+    }
+
+    .home-list{
+        margin-top: 80px;
+    }
+
+    
+}
+
+@media screen and (max-width:700px){
+    .home-section{
+        .home-list{
+            align-self: center;
+        }
     }
 }

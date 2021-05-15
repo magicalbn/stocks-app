@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import { getStockDetails, getStockChart } from '../../lib/stocks-lib'
+import Spinner from '../UI/Spinner2'
 
 import Chart from '../Stocks/Chart'
 
@@ -12,7 +13,11 @@ const Homestocks = (props) =>{
     const [stockDetails, setstockDetails] = useState({})
 
     useEffect(() => {
+        setchartTimestamp([])
+        setchartTimestamp([])
+        setstockDetails({})
         if(currentStockSymbol){
+            
             getStockDetails(currentStockSymbol).then(response => {
     
                 setstockDetails(response)
@@ -26,7 +31,7 @@ const Homestocks = (props) =>{
         }
     }, [currentStockSymbol])
 
-    let content = (stockDetails.symbol && chartStockvalue.length)?<Chart chartTimestamp={chartTimestamp} chartStockvalue={chartStockvalue} title={(stockDetails.longName) || (stockDetails.shortName) || " "} price={stockDetails.price} />:"Loading . ."
+    let content = (stockDetails.symbol && chartStockvalue.length)?<Chart chartTimestamp={chartTimestamp} chartStockvalue={chartStockvalue} title={(stockDetails.longName) || (stockDetails.shortName) || " "} price={stockDetails.price} />:<Spinner/>
 
     return (
         <div className="home-chart">

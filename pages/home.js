@@ -96,8 +96,10 @@ const Home = () => {
                     <Homestocks currentStockSymbol={currentStockSymbol}/>
                     <Homelist isLoading={isLoading} userStocks={userStocks} userWatchlist={userWatchlist} clickFunction={onListClick}/>
                 </div>
-                <button onClick={getuser}>get user</button>
-                <button onClick={logout}>logout</button>
+                {
+                //<button onClick={getuser}>get user</button>
+                //<button onClick={logout}>logout</button>
+                }
             </div>
 
 
