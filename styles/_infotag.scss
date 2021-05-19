@@ -1,0 +1,52 @@
+.login-form{
+    position: relative;
+    margin-top: 10px;
+    
+    .infotag{
+        text-align: right;
+        margin-right: 6px;
+        position: relative;
+        width: 25px;
+        margin-left: 90%;
+        cursor: pointer;
+        &:hover{
+            .info{
+                opacity: 1;
+            }
+        }
+        span{
+            font-family: 'Libre Baskerville', serif;
+            padding: 2px 8px;
+            border: 2px solid var(--extra-panel);
+            color: var(--extra-panel);
+            border-radius: 50%;
+            font-size: 15px;
+            font-weight: bold;
+            font-style: italic;
+            
+            
+        }
+        .info{
+            width: 300px;
+            position: absolute;
+            background-color: var(--extra-panel);
+            right: 0;
+            top: 30px;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.3s ease-in;
+            border-radius: 3px;
+            ul{
+                list-style: none;
+                text-align: start;
+                li{
+                    text-decoration: none;
+                    color: white;
+                    font-size: 13px;
+                    padding: 7px;
+                    
+                }
+            }
+        }
+    }
+}

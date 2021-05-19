@@ -8,6 +8,7 @@ import Details from '../frontend/components/Stocks/Details'
 import Chart from '../frontend/components/Stocks/Chart'
 import TransactCard from '../frontend/components/Transact/TransactCard'
 import { userGetdetails } from '../frontend/lib/auth-lib'
+import Spinner from '../frontend/components/UI/Spinner'
 
 const Stocks = (props) => {
 
@@ -71,7 +72,7 @@ const Stocks = (props) => {
     }
 
     let content = error?null:(
-        symbol ? (stockDetails.symbol && chartStockvalue.length ? (<><Chart chartTimestamp={chartTimestamp} chartStockvalue={chartStockvalue} title={(stockDetails.longName) || (stockDetails.shortName) || " "} price={stockDetails.price} /> <TransactCard details={stockDetails}/> </>): <p>Loading . .</p>) : <p>Start Searching for Stocks . .</p>
+        symbol ? (stockDetails.symbol && chartStockvalue.length ? (<><Chart chartTimestamp={chartTimestamp} chartStockvalue={chartStockvalue} title={(stockDetails.longName) || (stockDetails.shortName) || " "} price={stockDetails.price} /> <TransactCard details={stockDetails}/> </>): <Spinner/>) : <p>Start Searching for Stocks . .</p>
     )
 
 

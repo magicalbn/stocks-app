@@ -11,10 +11,11 @@ import Homelist from '../frontend/components/StocksList/HomeList'
 import Homestocks from '../frontend/components/HomeStocksChart/Homestocks'
 
 
+
 import { userGetdetails } from '../frontend/lib/auth-lib'
 import { getStocks } from '../frontend/lib/transact-lib'
 import { getWatchlist } from '../frontend/lib/watchlist-lib'
-import Watchlist from '../frontend/components/StocksList/WatchList';
+
 
 
 

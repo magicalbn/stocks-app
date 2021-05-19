@@ -35,7 +35,7 @@ const Buy = (props) => {
 
     const getStockCount = () => {
         getStocks().then(stocks => {
-            console.log(stocks)
+            
             let current = stocks.find(each => each.symbol == symbol)
             if (current) {
                 setcurrentCount(current.count)
@@ -53,7 +53,7 @@ const Buy = (props) => {
             count: stocksCount
         }
         buyStocks(data).then(res => {
-            console.log(res)
+            
             addToast(res, {
                 appearance: 'success',
                 autoDismiss: true,
@@ -80,7 +80,7 @@ const Buy = (props) => {
             count: stocksCount
         }
         sellStocks(data).then(res => {
-            console.log(res)
+            
             addToast(res, {
                 appearance: 'success',
                 autoDismiss: true,

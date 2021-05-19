@@ -1,0 +1,40 @@
+.home-section {
+    .home-chart {
+        .advert {
+            max-width: 500px;
+            margin-top: 10px;
+            background-color: white;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px,
+                rgba(17, 17, 26, 0.1) 0px 24px 80px;
+            padding: 20px;
+            border-radius: 5px;
+            .image {
+                height: 200px;
+                width: 200px;
+                background-image: url(/static/png/Purchase-Stocks.png);
+                background-size: cover;
+            }
+            p {
+                font-weight: bold;
+                color: var(--element-color);
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .home-section {
+        .home-chart {
+            .advert {
+                text-align: center;
+                .image{
+                    margin: auto;
+                }
+                p{
+                    max-width: 90%;
+                }
+            }
+        }
+    }
+}

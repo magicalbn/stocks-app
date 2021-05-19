@@ -1,8 +1,19 @@
 import React from 'react';
 import Spinner from '../UI/Spinner';
+import {useRouter} from 'next/router'
 
 const Stocklist = (props) => {
     const { userStocks, isLoading, onListClick } = props
+    const router = useRouter()
+
+    const onDetailsClick = (value) =>{
+        router.push({
+            pathname: "stocks",
+            query: {
+                symbol: value
+            }
+        })
+    }
     
     const content = (
         (userStocks && userStocks.length>0)? userStocks.map(each => {
@@ -12,7 +23,7 @@ const Stocklist = (props) => {
                         <h3>{each.symbol}</h3>
                         <p>{each.count} shares</p>
                     </div>
-                    <div className="right">
+                    <div className="right" onClick={()=>onDetailsClick(each.symbol)}>
                         <p>Details</p>
                     </div>
                 </div>

@@ -16,6 +16,7 @@ nav {
         &__logo {
             color: white;
             letter-spacing: 4px;
+            cursor: pointer;
         }
 
         &__links {
@@ -137,7 +138,7 @@ nav {
 
 
 .toggle .line1 {
-    transform: rotate(-45deg) translate(-4px, 5px);
+    transform: rotate(-45deg) translate(-4px, 6px);
 }
 
 .toggle .line2 {

@@ -14,11 +14,12 @@ const Layout = (props) => {
                 <link rel="icon" href="static/svg/increasing-stocks-graphic.svg" />
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet" />
 
+                <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet" />
             </Head>
-            {props.login?null:<Navbar />}
-          {props.children}
+            {props.login ? null : <Navbar />}
+            {props.children}
 
-            
+
         </>
     )
 }

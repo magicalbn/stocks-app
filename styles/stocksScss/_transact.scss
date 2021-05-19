@@ -2,59 +2,62 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    >.loader {
+        border: 4px solid var(--element-color);
+        margin-left: 50px;
+        border-top: 4px solid #00000000;
+    }
 }
 
-.right-collection{
+.right-collection {
     display: flex;
     flex-direction: column;
-    .watchlist{
-        
+    .watchlist {
         border-radius: 5px;
         text-align: center;
         margin: auto;
         margin-top: 50px;
         width: 80%;
-       
+
         background-color: white;
         padding: 5px;
         font-weight: bold;
-        
+
         cursor: pointer;
         transition: 0.3s ease-in;
         font-size: 13px;
-        
 
-        &.watch{
+        &.watch {
             border: 2px solid var(--stocks-green);
             color: var(--stocks-green);
-            &:hover{
+            &:hover {
                 color: white;
                 background-color: var(--stocks-green);
-                .loader{
+                .loader {
                     border: 4px solid white;
-                border-top: 4px solid #00000000;
+                    border-top: 4px solid #00000000;
                 }
-                
             }
-            .loader{
+            .loader {
                 border: 4px solid var(--stocks-green);
                 border-top: 4px solid #00000000;
             }
         }
 
-        &.unwatch{
+        &.unwatch {
             border: 2px solid var(--extra-panel);
             color: var(--extra-panel);
-            &:hover{
+            &:hover {
                 color: white;
                 background-color: var(--extra-panel);
-                .loader{
+                .loader {
                     border: 4px solid white;
-                border-top: 4px solid #00000000;
+                    border-top: 4px solid #00000000;
                 }
             }
 
-            .loader{
+            .loader {
                 border: 4px solid var(--extra-panel);
                 border-top: 4px solid #00000000;
             }
@@ -64,7 +67,7 @@
 
 .transact-card {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
-    border-radius:  5px;
+    border-radius: 5px;
     background-color: white;
     overflow: hidden;
     width: 350px;
@@ -100,8 +103,6 @@
     }
 
     .transact-details {
-        
-
         padding: 20px 30px;
 
         h3 {
@@ -136,7 +137,7 @@
             transition: 0.2s ease-in;
             margin: 20px auto;
             border-radius: 3px;
-            &:disabled{
+            &:disabled {
                 opacity: 0.5;
                 pointer-events: none;
             }
@@ -145,7 +146,7 @@
                 transform: scale(1.03);
             }
 
-            .loader{
+            .loader {
                 padding-left: 0;
                 margin-top: 0;
             }
@@ -157,30 +158,27 @@
     }
 }
 
-@media screen and (max-width: 1100px){
-    .interact{
+@media screen and (max-width: 1100px) {
+    .interact {
         flex-direction: column;
         align-items: flex-start;
-        
-        .right-collection{
+
+        .right-collection {
             align-self: center;
         }
-        
-       
-        .transact-card{
+
+        .transact-card {
             width: 300px;
             margin-top: 50px;
             align-self: center;
 
-            div{
+            div {
                 font-size: 13px;
             }
         }
     }
 
-    .watchlist{
+    .watchlist {
         font-size: 10px;
     }
 }
-
-

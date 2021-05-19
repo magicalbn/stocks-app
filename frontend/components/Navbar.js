@@ -24,7 +24,7 @@ const Navbar = () => {
         <nav>
             
             <div className="navbar">
-                <h1 className="navbar__logo">STOCKS</h1>
+            <Link href="/home"><h1 className="navbar__logo">STOCKS</h1></Link>
                 <ul className={"navbar__links"+(toggle?' activate-nav':'')}>
                     <li className={router.pathname == "/home" ? "active" : null}>
                         <Link href="/home">Home</Link>

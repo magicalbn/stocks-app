@@ -4,7 +4,7 @@ import { ToastProvider, useToasts } from 'react-toast-notifications';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 function MyApp({ Component, pageProps }) {
-    return <ToastProvider><Component {...pageProps} /></ToastProvider>
+    return <ToastProvider placement="bottom-right"><Component {...pageProps} /></ToastProvider>
   }
   
   // Only uncomment this method if you have blocking data requirements for

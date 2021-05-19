@@ -54,7 +54,7 @@ const buyStocks = async (req, res) => {
    
 
     if (previousStock) {
-        console.log("stock found" ,previousStock)
+      
         previousStock.count = parseInt(count) + parseInt( previousStock.count)
        
     }
@@ -104,7 +104,7 @@ const sellStocks = async (req,res) =>{
     console.log("Initial",ownedStocks)
     
     if(previousStock){
-        console.log("stock found" ,previousStock)
+       
         if(parseInt( previousStock.count) <  parseInt(count))
        { console.log( parseInt( previousStock.count) <  parseInt(count))
        

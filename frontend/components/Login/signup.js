@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Input from '../UI/Input'
 import Spinner from '../UI/Spinner'
+import Infotag from '../UI/Infotag'
 
 
 import { userLogin, userGetdetails, userRegister } from '../../lib/auth-lib'
@@ -157,7 +158,7 @@ const Signup = () => {
 
     return (
         <div className="login-form">
-
+            <Infotag/>
             <form>
                 {
                     FormElements.map(each => {
