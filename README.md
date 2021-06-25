@@ -1,6 +1,5 @@
-# next-react-express-template
+# stocks-app
 
-clone this repo and start with "npm run dev"        
-!dont forget to to "npm install"
+Hosted on Heroku ==> https://stocks-app-react.herokuapp.com/
 
-heroku deployment script added
+
