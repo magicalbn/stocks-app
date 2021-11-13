@@ -11,12 +11,12 @@ const Homestocks = (props) =>{
     const [chartTimestamp, setchartTimestamp] = useState([])
     const [chartStockvalue, setchartStockvalue] = useState([])
     const [stockDetails, setstockDetails] = useState({})
-    const [isLoading, setisLoading] = useState(true)
+    const [isLoading, setisLoading] = useState(false)
 
     useEffect(() => {
-        setisLoading(true)
+        
         if(currentStockSymbol){
-            
+            setisLoading(true)
             getStockDetails(currentStockSymbol).then(response => {
     
                 setstockDetails(response)
@@ -29,14 +29,13 @@ const Homestocks = (props) =>{
                 setchartTimestamp(response.timestamp)
                 setisLoading(false)
             }).catch(err => {setisLoading(false) ;console.log(err.response && err.response.data)})
-        }else setisLoading(false)
+        }
     }, [currentStockSymbol])
 
     let content = (!isLoading && stockDetails.symbol && chartStockvalue.length)?<Chart chartTimestamp={chartTimestamp} chartStockvalue={chartStockvalue} title={(stockDetails.longName) || (stockDetails.shortName) || " "} price={stockDetails.price} />:<Spinner/>
 
     return (
         <div className="home-chart">
-            
             { (currentStockSymbol || isLoading)?content:<Advert/>}
         </div>
     )
