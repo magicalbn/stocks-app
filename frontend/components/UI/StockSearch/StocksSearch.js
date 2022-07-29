@@ -49,7 +49,6 @@ const StockSearch = (props) => {
                 {error?<p className="error">Error: {error}</p>:null}
             </div>
             <button onClick={()=>submitHandler(search)}></button>
-            
         </div>
     )
 }
