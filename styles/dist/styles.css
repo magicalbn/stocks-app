@@ -2,7 +2,7 @@ html {
   --back-color:hsl(0, 0%, 98%);
   --text-color: #131112;
   --element-color: #004459;
-  --light-element-color: #699190;
+  --light-element-color: #9FB4C7;
   --input-color:hsl(0, 0%, 52%);
   --border-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
   --extra-panel: #fd7f09;
@@ -607,13 +607,15 @@ li.link-animate {
   font-weight: bold;
   color: var(--element-color);
   padding: 10px;
-  padding-left: 20px;
+  padding-left: 15px;
   border: none;
   outline: none;
   width: 300px;
   border-radius: 5px 0 0 5px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  -webkit-clip-path: inset(-30px 0px -30px -30px);
+          clip-path: inset(-30px 0px -30px -30px);
   text-transform: capitalize;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
@@ -630,39 +632,52 @@ li.link-animate {
 
 .search .suggestion .dropdown {
   position: absolute;
-  -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-          box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   width: 100%;
   z-index: 10;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  bottom: -2px;
+  bottom: 0px;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
-  border: 0.5px solid var(--light-element-color);
   border-top: none;
   border-radius: 0 0px 5px 5px;
   overflow: hidden;
 }
 
-.search .suggestion .dropdown div {
-  background-color: white;
-  padding: 2.5px;
-  padding-left: 15px;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
+.search .suggestion .dropdown::before {
+  content: "";
+  -webkit-transform: translateX(13%);
+          transform: translateX(13%);
+  width: 80%;
+  height: 1px;
+  opacity: 30%;
+  background-color: #5e5e5e;
+  position: absolute;
 }
 
-.search .suggestion .dropdown div:not(:last-child) {
-  border-bottom: 1px solid var(--light-element-color);
+.search .suggestion .dropdown div {
+  background-color: white;
+  padding: 10px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 15px;
+  cursor: pointer;
 }
 
 .search .suggestion .dropdown div p {
   color: var(--input-color);
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .search .suggestion .dropdown div p:not(:last-child) {
@@ -670,11 +685,25 @@ li.link-animate {
 }
 
 .search .suggestion .dropdown div:hover {
-  background-color: var(--light-element-color);
+  background-color: #266779;
 }
 
 .search .suggestion .dropdown div:hover p {
   color: white;
+}
+
+.search .suggestion .dropdown .dropdown-spinner:hover .loader {
+  border: 3px solid white;
+  border-top: 3px solid var(--element-color);
+  background-color: var(--element-color);
+}
+
+.search .suggestion .dropdown .dropdown-spinner .loader {
+  padding: 0px;
+  border: 3px solid var(--element-color);
+  border-top: 3px solid #00000000;
+  width: 20px;
+  height: 20px;
 }
 
 .search .suggestion .error {
@@ -687,7 +716,6 @@ li.link-animate {
 
 .search button {
   background-color: var(--extra-panel);
-  color: white;
   border: none;
   outline: none;
   border-radius: 0 10px 10px 0;
@@ -703,6 +731,8 @@ li.link-animate {
   transition: 0.3s ease-in-out;
   -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  -webkit-clip-path: inset(-30px -30px -30px 0px);
+          clip-path: inset(-30px -30px -30px 0px);
 }
 
 .search button:hover {
@@ -721,7 +751,7 @@ li.link-animate {
             transform: scale(2);
   }
   .search button {
-    height: 36px;
+    height: 40px;
     width: 36px;
     background-size: 15px;
   }
@@ -1076,7 +1106,7 @@ li.link-animate {
 
 @media screen and (max-width: 800px) {
   .chart .time-filter {
-    width: 80%;
+    width: 100%;
     margin-left: 100px;
   }
   .chart .time-filter span {
@@ -1086,7 +1116,7 @@ li.link-animate {
 
 @media screen and (max-width: 600px) {
   .chart .time-filter {
-    margin-left: 50px;
+    margin-left: 24px;
   }
   .chart .time-filter span {
     font-size: 11px;

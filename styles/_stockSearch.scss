@@ -13,12 +13,13 @@
             font-weight: bold;
             color: var(--element-color);
             padding: 10px;
-            padding-left: 20px;
+            padding-left: 15px;
             border: none;
             outline: none;
             width: 300px;
             border-radius: 5px 0 0 5px;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            clip-path: inset(-30px 0px -30px -30px);
             text-transform: capitalize;
             transition: 0.3s ease-in-out;
             &:focus {
@@ -33,41 +34,78 @@
         }
 
         .dropdown {
+            &::before{
+                content: "";
+                transform: (translateX(13%));
+                width: 80%;
+                height: 1px;
+                opacity: 30%;
+                background-color: rgb(94, 94, 94);
+                position: absolute;
+            }
             position: absolute;
-            box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            // box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
             width: 100%;        
             z-index: 10; 
             opacity: 0;
             visibility: hidden;
             transition: 0.3s ease-in-out;
-            bottom: -2px;
+            bottom: 0px;
             transform: translateY(100%);
-            border: 0.5px solid var(--light-element-color);
+            // border: 0.5px solid var(--light-element-color);
             border-top: none;
             border-radius: 0 0px 5px 5px;
             overflow: hidden;
             div{
                 background-color: white;
-                padding: 2.5px;
-                padding-left: 15px;
+                padding: 10px;
+                
                 transition: all 0.2s ease-in-out;
+                display: flex;
+                justify-content: space-between;
+                padding-left: 15px;
+                padding-right: 15px;
+                
                 cursor: pointer;
                 &:not(:last-child){
-                    border-bottom: 1px solid var(--light-element-color);
+                    // border-bottom: 1px solid var(--light-element-color);
                 }
                 p{
                     color: var(--input-color);
-                    font-size: 15px;
+                    font-size: 13px;
 
                     &:not(:last-child){
                         font-weight: bold;
                     }
                 }
                 &:hover{
-                    background-color: var(--light-element-color);
+                    
+                    background-color: #266779;
                     p{color: white;}
                 }
             }  
+
+            .dropdown-spinner{
+               
+                &:hover{
+                   
+                    .loader{
+                        border: 3px solid white;
+                        border-top: 3px solid  var(--element-color);
+                        background-color: var(--element-color);
+                    }
+                }
+               
+                .loader{
+                    padding: 0px;
+                    border: 3px solid var(--element-color);
+                    border-top: 3px solid #00000000;
+                    width: 20px;
+                    height: 20px;
+                    
+                }
+            }
         }
 
         .error{
@@ -79,11 +117,9 @@
     }
 
     button {
-        background-color: var(--extra-panel);
-        color: white;
+        background-color: var(--extra-panel);        
         border: none;
-        outline: none;
-        
+        outline: none;        
         border-radius: 0 10px 10px 0;
         opacity: 0.8;
         cursor: pointer;
@@ -95,6 +131,7 @@
         height: 40px;
         transition: 0.3s ease-in-out;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        clip-path: inset(-30px -30px -30px 0px);
         &:hover {
             opacity: 1;
         }
@@ -117,7 +154,7 @@
             }
         }
         button{
-            height: 36px;
+            height: 40px;
             width: 36px;
             background-size: 15px;
         }

@@ -9,6 +9,7 @@ const StockSearch = (props) => {
 
     const [search, setsearch] = useState(initialValue || "")
     const [list, setlist] = useState([])
+    const [loading,setLoading] = useState(false)
   
 
     
@@ -17,10 +18,11 @@ const StockSearch = (props) => {
     
 
     useEffect(() => {
+        search.length>0?setLoading(true):setLoading(false)
         const timeoutId = setTimeout(() => {
             if (search == input.current.value && search.trim() != "") {
-
-                autoComplete(search).then(list => setlist(list)).catch(err => console.log(err.response))
+               
+                autoComplete(search).then(list => {setlist(list); setLoading(false) }).catch(err => {console.log(err.response); setLoading(false)})
             }
         }, 500);
         if(search.trim()==""){
@@ -43,9 +45,10 @@ const StockSearch = (props) => {
 
     return (
         <div className="search">
-            <div className="suggestion">
+            <div className="suggestion"> {console.log(list.length)}
                 <input ref={input} placeholder="Search by Stock Name" type="search" value={search} onChange={(event) => setsearch(event.target.value)}></input>
-                <Dropdown setHandler={setHandler} list={list} length={search.trim().length} />
+                 <Dropdown loading={loading} setHandler={setHandler} list={list} length={search.trim().length} />
+                 
                 {error?<p className="error">Error: {error}</p>:null}
             </div>
             <button onClick={()=>submitHandler(search)}></button>

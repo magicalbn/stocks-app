@@ -1,7 +1,9 @@
 import React from 'react';
 
+import Spinner from '../Spinner';
+
 const Dropdown = (props) => {
-    const { list, length } = props;
+    const { list, length, loading } = props;
    
     let count = 0  
     let content = (
@@ -24,9 +26,10 @@ const Dropdown = (props) => {
     
     return (
         <div className="dropdown">
+            {console.log(loading,"**********")}
 
             {
-                list.length ? content : (<div> <p>{!length?"Start typing . .":"Try something else"}</p></div>)
+                !loading?(list.length ? content : (!length?null:<div> <p>{"Did not find any matches"}</p></div>)): (<div className='dropdown-spinner'><Spinner/></div>)
                 
             }
 
