@@ -1,9 +1,6 @@
 {
   "name": "next-react-express-template",
   "version": "1.0.0",
-  "engines": {
-    "node": "14.16.1"
-  },
   "description": "template",
   "main": "server.js",
   "scripts": {
@@ -22,18 +19,19 @@
     "connect-mongodb-session": "^3.1.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "express-validator": "^6.10.0",
     "mongoose": "^5.12.0",
     "mongoose-unique-validator": "^2.0.3",
-    "next": "^10.0.7",
+    "next": "^12.0.7",
     "nodemon": "^2.0.19",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "react": "^17.0.1",
+    "react-awesome-reveal": "^4.2.7",
     "react-dom": "^17.0.1",
-    "react-reveal": "^1.2.2",
     "react-toast-notifications": "^2.4.4",
     "recharts": "^2.0.8"
   }
