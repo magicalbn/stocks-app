@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "template",
   "main": "server.js",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "nodemon index.js",
     "build": "next build",
