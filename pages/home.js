@@ -24,7 +24,7 @@ const Home = () => {
         userGetdetails()
             .then((user) => {
                 if (!user.user) {
-                    Router.replace("/");
+                    router.replace("/");
                 } else {
                     getStocks()
                         .then((stocks) => {
