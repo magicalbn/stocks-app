@@ -1,4 +1,4 @@
-import axios from "../config/axios.config";
+import axios from "axios";
 
 export const autoComplete = async (stockName) => {
     const { data } = await axios.get(`/api/stocks/autocomplete/${stockName}`);

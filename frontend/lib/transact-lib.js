@@ -1,4 +1,4 @@
-import axios from "../config/axios.config";
+import axios from "axios";
 
 export const getStocks = async () => {
     const { data } = await axios.get("/api/transact/user/getstocks");

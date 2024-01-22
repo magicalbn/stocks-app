@@ -1,5 +1,4 @@
-import axios from "../config/axios.config";
-
+import axios from "axios";
 export const userLogin = async (body) => {
     const { data } = await axios.post("/api/auth/login", body);
     return data;
